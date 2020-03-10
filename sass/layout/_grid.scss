@@ -4,13 +4,14 @@
   margin: 0 auto;
 
   &:not(:last-child) {
-    margin-bottom: $gutter-vertical-large;
+    margin-bottom: $gutter-vertical-medium;
   }
 
   @include clearfix;
 
   [class^="col"] {
     float: left;
+    margin-bottom: $gutter-horizontal;
 
     @include respond(tab-port) {
       width: 100% !important;
@@ -28,6 +29,14 @@
 
   .col-1-of-2 {
     width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+
+    &:nth-child(3n + 3) {
+      margin-right: 0;
+    }
   }
 
   .col-1-of-4 {

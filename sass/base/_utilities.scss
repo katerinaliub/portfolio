@@ -8,3 +8,27 @@
 .u-margin-top-medium {
   margin-top: $gutter-horizontal;
 }
+
+.u-margin-bottom-medium {
+  margin-bottom: $gutter-horizontal;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: $gutter-horizontal-small;
+}
+
+.u-center-text {
+  text-align: center;
+}
+
+.u-animated-to-right {
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.u-img-responsive {
+  display: block;
+  max-width: 100%;
+}
+

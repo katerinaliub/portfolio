@@ -1,0 +1,77 @@
+.card {
+
+  position: relative;
+  overflow: hidden;
+
+  &__img {
+    transform: scale(1.4);
+    transition: all .5s;
+  }
+
+  &__btns {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    padding: 10px;
+    opacity: 0;
+    transform: translate(0, -100%);
+    transition: all .5s;
+  }
+
+  &__text {
+    display: inline-block;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    transform: translate(-100%, 0);
+    color: $color-white;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    opacity: 0;
+    transition: all .5s;
+  }
+
+  &__name {
+    background: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    padding: 10px;
+  }
+
+  &__skills {
+    font-size: 1.2rem;
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &__skills li {
+    display: inline-block;
+
+    &:not(:last-child) {
+      padding-right: 3px;
+
+      &:after {
+        content: " | "
+      }
+    }
+  }
+
+  &:hover &__text {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  &:hover &__btns {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  &:hover &__img {
+    transform: scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

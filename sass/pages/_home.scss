@@ -8,3 +8,44 @@
   align-items: center;
 }
 
+.section-about {
+
+  padding: $gutter-horizontal 0;
+
+  &__photo {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.section-portfolio {
+  padding: $gutter-horizontal 0;
+}
+
+.section-contact {
+  padding: $gutter-horizontal 0;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 200px;
+
+  .contact-form {
+    background-color: $color-text;
+    padding: $gutter-horizontal $gutter-vertical-small;
+    color: $color-white;
+
+    .heading-4 {
+      line-height: normal;
+    }
+  }
+
+  .resume {
+    background-image: url(../assets/img/resume.jpg);
+    background-size: cover;
+    padding: $gutter-horizontal $gutter-vertical-small;
+
+  }
+}
+

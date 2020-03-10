@@ -12,7 +12,25 @@ body {
   line-height: 1.5;
 }
 
+.heading-2 {
+  font-size: $font-size-large;
+  font-weight: bold;
+}
+
 .heading-3 {
   font-size: $font-size-medium;
   font-weight: normal;
+}
+
+.heading-4 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.paragraph {
+  font-size: $font-size-default;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }

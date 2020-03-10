@@ -1,0 +1,194 @@
+.navigation {
+  &__nav {
+    @include respond(tab-port) {
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1500;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: .8s all;
+    }
+  }
+
+  &__list {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: $color-white;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    @include respond(tab-port) {
+      display: flex;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      flex-direction: column;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      transition: .8s all;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 5rem;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @include respond(tab-port) {
+      opacity: 0;
+      transform: translateX(100%);
+      width: 100%;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          $diff: .1s * $i;
+          $delay: .4 + $diff;
+          transition: .8s all;
+          transition-delay: $delay;
+        }
+      }
+    }
+
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-text;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      position: relative;
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+      transform: translateY(-.4rem);
+
+      @include respond(tab-port) {
+        transform: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 2px;
+      width: 0;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease, left .5s ease;
+
+      @include respond(tab-port) {
+        transition: none;
+      }
+    }
+
+    &:hover:after,
+    &:active:after,
+    &:focus:after {
+      width: 100%;
+      left: 0;
+      background: $color-text;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    display: none;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    cursor: pointer;
+
+    @include respond(tab-port) {
+      position: relative;
+      display: block;
+      z-index: 1501;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    margin-top: 2.5rem;
+    &,
+    &:before,
+    &:after {
+      width: 2.5rem;
+      height: 2px;
+      background-color: $color-text;
+      display: inline-block;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &:before {
+      top: -.8rem;
+    }
+
+    &:after {
+      top: .8rem;
+    }
+  }
+
+  //functionality
+  &__checkbox:checked ~ &__nav {
+    background-color: rgba($color-primary, .9);
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__checkbox:checked ~  &__nav > &__list > &__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__checkbox:checked + &__button {
+    position: fixed;
+    right: 0;
+    top: 25px;
+
+    @include respond(tab-port) {
+      right: 5%;
+      top: 0;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon:before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon:after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
