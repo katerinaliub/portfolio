@@ -187,6 +187,19 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(29, 30, 33, 0.15);
   transform: translateY(0); }
 
+.btn--primary {
+  background-color: #d59f01;
+  color: #fff; }
+  .btn--primary:hover, .btn--primary:active, .btn--primary:focus {
+    background-color: #d59f01;
+    color: #fff; }
+  .btn--primary:focus {
+    transform: scale(1.08);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+
+.btn--medium {
+  padding: 1.2rem 4.6rem; }
+
 .card {
   position: relative;
   overflow: hidden; }
@@ -239,6 +252,50 @@ body {
   .card:hover .card__img {
     transform: scale(1);
     filter: blur(3px) brightness(80%); }
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.form textarea {
+  resize: none; }
+
+.form__input {
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 0;
+  background-color: #1D1E21;
+  border: 1px solid #d59f01;
+  width: 100%;
+  display: block; }
+  @media only screen and (max-width: 56.25em) {
+    .form__input {
+      width: 100%; } }
+  .form__input:focus, .form__input:hover {
+    outline: none; }
+  .form__input:focus:invalid {
+    border-color: #ff7730; }
+  .form__input::-webkit-input-placeholder {
+    color: #d59f01; }
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s;
+  color: #d59f01; }
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+.form--small {
+  max-width: 400px;
+  margin: 0 auto; }
 
 @media only screen and (max-width: 56.25em) {
   .navigation__nav {
@@ -532,4 +589,8 @@ body {
   .contact-wrapper .resume {
     background-image: url(../assets/img/resume.jpg);
     background-size: cover;
-    padding: 6rem 4rem; }
+    padding: 6rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }

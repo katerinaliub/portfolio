@@ -58,4 +58,25 @@
       transform: translateY(0);
     }
   }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &:focus {
+      transform: scale(1.08);
+      box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+    }
+  }
+
+  &--medium {
+    padding: 1.2rem 4.6rem;
+  }
 }

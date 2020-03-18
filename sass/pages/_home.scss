@@ -45,7 +45,10 @@
     background-image: url(../assets/img/resume.jpg);
     background-size: cover;
     padding: $gutter-horizontal $gutter-vertical-small;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 

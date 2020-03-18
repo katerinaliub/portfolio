@@ -377,15 +377,39 @@
         <h3 class="heading-2 u-margin-bottom-medium" data-aos="fade-bottom">Contact</h3>
     </div>
     <div class="row">
-        <div class="contact-wrapper">
+        <div class="contact-wrapper" data-aos="zoom-in"  data-aos-delay="300">
             <div class="contact-form">
-                <h4 class="heading-4 u-center-text u-margin-bottom-medium" >Have a question or want <br/> to work together?</h4>
+                <h4 class="heading-4 u-center-text u-margin-bottom-medium">Have a question or want <br/> to work together?</h4>
 
-                <form action="#" class="form"></form>
+                <form method="post" action="contact-form-handler.php" class="form form--small">
+                    <div class="form__group">
+                        <input type="text" class="form__input" placeholder="Full Name" id="name" name="name" required>
+                        <label for="name" class="form__label">Full Name</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
+                        <label for="email" class="form__label">Email</label>
+                    </div>
+
+                    <div class="form__group">
+                        <textarea name="message" id="message" class="form__input" rows="5" placeholder="Your Message" required name="message"></textarea>
+                        <label for="message" class="form__label">Your Message</label>
+                    </div>
+
+                    <div class="form__group">
+                        <button class="btn btn--primary btn--medium">Send</button>
+                    </div>
+                </form>
 
 
             </div>
-            <div class="resume">Resume</div>
+            <div class="resume u-center-text">
+                <h4 class="heading-4">
+                    If you want to know more about <br/> my experience, please feel free  </br/> to download resume below
+                </h4>
+                <a class="btn u-margin-top-medium" href="/assets/resume.pdf" download="KatiaLiubarshchukResume">Download Resume &darr;</a>
+            </div>
         </div>
     </div>
 </section>
