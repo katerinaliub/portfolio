@@ -6,24 +6,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .text-box {
+    max-width: 650px;
+  }
 }
 
 .section-about {
 
   padding: $gutter-horizontal 0;
 
+  @include respond(tab-port) {
+    padding: 3rem 0;
+  }
+
   &__photo {
     max-width: 300px;
     margin: 0 auto;
+    width: 100%;
   }
 }
 
 .section-portfolio {
   padding: $gutter-horizontal 0;
+
+  @include respond(tab-port) {
+    padding: 3rem 0;
+  }
 }
 
 .section-contact {
-  padding: $gutter-horizontal 0;
+  padding: $gutter-horizontal 0 0;
+
+  @include respond(tab-port) {
+    padding: 3rem 0 0;
+  }
 }
 
 .contact-wrapper {
@@ -31,7 +48,12 @@
   grid-template-columns: repeat(2, 1fr);
   min-height: 200px;
 
-  .contact-form {
+  @include respond(tab-port) {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+    .contact-form {
     background-color: $color-text;
     padding: $gutter-horizontal $gutter-vertical-small;
     color: $color-white;

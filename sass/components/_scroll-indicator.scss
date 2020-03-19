@@ -1,0 +1,10 @@
+.scroll-indicator {
+  width: 100%;
+  height: 4px;
+
+  &__bar {
+    height: 4px;
+    background: $color-primary;
+    width: 0;
+  }
+}

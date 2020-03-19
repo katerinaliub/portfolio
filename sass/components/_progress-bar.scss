@@ -1,9 +1,12 @@
 .progress-bar {
 
   width: 50%;
-  min-width: 300px;
   margin: 0 auto;
   font-size: 1.4rem;
+
+  @include respond(tab-port) {
+    width: 100%;
+  }
 
   &:not(:last-child) {
     margin-bottom: $gutter-horizontal-small;

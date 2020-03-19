@@ -14,15 +14,18 @@
 </head>
 <body>
 
-<header class="header">
+<header class="header" id="header">
     <div class="header__content">
-        <img src="assets/img/logo.png" alt="Logo" class="header__logo">
+        <div class="header__logo u-hidden-tabport">
+            <a class="btn btn--small" href="/assets/resume.pdf" download="KatiaLiubarshchukResume">Download CV &darr;</a>
+        </div>
+
         <div class="navigation">
             <input type="checkbox" class="navigation__checkbox" id="nav-toggle">
             <label for="nav-toggle" class="navigation__button">
                 <span class="navigation__icon">&nbsp;</span>
             </label>
-            <nav class="navigation__nav">
+            <nav class="navigation__nav"">
                 <ul class="navigation__list">
                     <li class="navigation__item"><a href="#home" data-scroll class="navigation__link">Home</a></li>
                     <li class="navigation__item"><a href="#about" data-scroll class="navigation__link">About</a></li>
@@ -47,6 +50,9 @@
                 </a>
             </li>
         </ul>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-indicator__bar" id="scroll-bar"></div>
     </div>
 </header>
 
@@ -408,11 +414,15 @@
                 <h4 class="heading-4">
                     If you want to know more about <br/> my experience, please feel free  </br/> to download resume below
                 </h4>
-                <a class="btn u-margin-top-medium" href="/assets/resume.pdf" download="KatiaLiubarshchukResume">Download Resume &darr;</a>
+                <a class="btn u-margin-top-medium" href="/assets/resume.pdf" download="KatiaLiubarshchukResume">Download CV &darr;</a>
             </div>
         </div>
     </div>
 </section>
+
+<footer class="footer u-center-text">
+    © 2020 Kateryna Liubarshchuk, All Rights Reserved
+</footer>
 
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@16.1.2/dist/smooth-scroll.min.js"></script>
@@ -430,15 +440,30 @@
             $('.progress-bar__line').width(function(){
                 return $(this).data('score');
             });
-        }
-    }, { offset: 'bottom-in-view' });
-
-    $('#skills').waypoint(function(direction) {
-        if (direction === 'up') {
+        } else if (direction === 'up') {
             $('.progress-bar__line').width(0);
         }
     }, { offset: 'bottom-in-view' });
 
+    $('#home').waypoint(function(direction) {
+        if (direction === 'down') {
+            $('#header').addClass('header--white')
+        } else if (direction === 'up') {
+            $('#header').removeClass('header--white');
+        }
+    }, { offset: -110 });
+
+
+    $( window ).scroll(function() {
+        var winScroll = $('body,html').scrollTop();
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        if (winScroll > 110) {
+            $("#scroll-bar").width(scrolled + "%");
+        } else if (winScroll <= 110) {
+            $("#scroll-bar").width(0);
+        }
+    });
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   right: 0;
   left: 0;
   z-index: 1;
+  transition: background-color .5s;
 
   &__content {
     max-width: 90%;
@@ -16,11 +17,17 @@
 
     @include respond(tab-port) {
       min-height: 5rem;
+      flex-direction: row-reverse;
+      justify-content: space-between;
     }
   }
 
   &__logo {
-    height: 3rem;
     margin-right: auto;
   }
+
+  &--white {
+    background-color: $color-white;
+  }
+
 }
